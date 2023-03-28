@@ -1,0 +1,46 @@
+
+.cont{
+    min-height: 100vh;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.548);
+    display: flex;
+}
+.maincontent{
+    width: 60%;
+    object-fit: cover;
+    position: relative;
+}
+.videoplayer{
+    width: 100%;
+    height: 80vh;
+    
+    border: none;
+}
+.titlevp{
+    color: whitesmoke;
+    font-family: cursive;
+    font-weight: 700;
+    padding-left: 1vmax;
+}
+
+.sidecontent{
+width: 40%;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+object-fit: cover;
+background-size: cover;
+
+}
+.sideitems{
+    padding-left: 1vmax;
+    border-bottom: 2px solid;
+    margin-bottom: 0.5vmax;
+    color: antiquewhite;
+    font-family: cursive;
+    font-weight: 700;
+    
+}
+.sideitems:hover{
+    cursor: pointer;
+}

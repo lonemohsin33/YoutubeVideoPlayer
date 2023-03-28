@@ -1,0 +1,21 @@
+.videoitem{
+    /* border: 1px solid green; */
+    padding: 0.2vmax;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.817);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+ 
+}
+.vidtitle{
+    font-family: cursive;
+    font-weight: bold;
+    color: antiquewhite;
+    text-transform: uppercase;
+}
+.vidtitle:hover{
+    
+    color: rgb(54, 72, 162);
+    text-decoration: underline;
+}
