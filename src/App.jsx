@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage />}  />
         <Route path="/*" element={<VideoPlayer />} key={ Math.random()} />
       
       </Routes>

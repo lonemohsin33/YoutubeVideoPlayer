@@ -2,19 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./homepage.css";
 import VideoItem from "../Video/VideoItem";
 
-const Homepage = () => {
+const Homepage = (props) => {
   const [videos, SetVideos] = useState("");
+  
+  console.log(props.vids)
 
   useEffect(() => {
     getItems();
-  }, []);
+  }, [props]);
   async function getItems() {
-    const res = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyDiK0f0LmWGrnUlB4eyWSN-F-Q5Xq08Ce0"
-    );
-    const data = await res.json();
-    console.log(data);
-    SetVideos(data.items);
+    if (props.vids.length > 0) {
+      SetVideos(props.vids)
+    } else {
+      
+      const res = await fetch(
+        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyBXU0zxIGg0pP8zqS5cUuw_cga1BxNUYQY"
+      );
+        const data = await res.json();
+        // console.log(data);
+        SetVideos(data.items);
+      }
   }
   return (
 

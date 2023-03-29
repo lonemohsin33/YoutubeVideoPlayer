@@ -1,12 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { ToastContainer ,toast} from 'react-toastify';
 import './videoplayer.css'
 const VideoPlayer = () => {
     const [searchParams] = useSearchParams();
-    const [rvideos, SetRVideos] = useState("")
+  const [rvideos, SetRVideos] = useState("")
+  const navigate = useNavigate()
+    const [pagec, setpagec]= useState(0)
+  const refresh = () => window.location.reload(true);
 
-    const title = searchParams.get("title");
+    
+
+  let title = searchParams.get("title");
+  
    
     
    
@@ -14,10 +20,10 @@ const VideoPlayer = () => {
     console.log(videoid);
     useEffect(() => {
         getRelatedVideos()
-    },[])
+    },[pagec])
     async function getRelatedVideos() {
         const res = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyDiK0f0LmWGrnUlB4eyWSN-F-Q5Xq08Ce0`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyBXU0zxIGg0pP8zqS5cUuw_cga1BxNUYQY`
         );
         const data = await res.json()
         console.log(data)
@@ -25,7 +31,10 @@ const VideoPlayer = () => {
             alert(data.error.message)
         }
         SetRVideos(data.items)
-    }
+  }
+  
+ 
+  
   return (
     <div className="cont">
       <div className="maincontent">
@@ -34,21 +43,6 @@ const VideoPlayer = () => {
           className="videoplayer"
         />
         <h2 className="titlevp"> {title}</h2>
-      </div>
-      <div className="sidecontent">
-        {rvideos
-          ? rvideos.map((item) => (
-              <Link
-                style={{ textDecoration: "none" }}
-                to={`/${item.id.videoId}?title=${item.snippet.title}`}
-              >
-                <div className="sideitems" key={item.id.videoId}>
-                  <img src={item.snippet.thumbnails.standard.url} />
-                  <h3> {item.snippet.title} </h3>
-                </div>
-              </Link>
-            ))
-          : ""}
       </div>
     </div>
   );
