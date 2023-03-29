@@ -5,18 +5,21 @@ import './videoitem.css'
 const VideoItem = (props) => {
 
   const navigate = useNavigate()
- 
+  const [id, setId] = useState(props.id)
+const [title, setTitle] = useState(props.title);
+  
+  function handleNewclick() {
+   navigate(`/${id}?title=${title}`);
+ }
   console.log(props);
  
     return (
       <div className="videoitem">
-        <Link
-          style={{ textDecoration: "none" }}
-          to={`/${  props.id.videoId || props.id }?title=${props.title}`}
-        >
-          <img src={props.src}  />
-          <h3 className="vidtitle"> {props.title}</h3>
-        </Link>
+        
+        <img src={props.src} onClick={handleNewclick} />
+        <h3 className="vidtitle" onClick={handleNewclick}>
+          {props.title}
+        </h3>
       </div>
     );
 }
