@@ -16,3 +16,6 @@ The main page consists of Top rated videos in the country. you can click on any 
 the search bar is giving the results on click on the icon.
 
 sometimes APi crashes due to completion of request per day quota. which is really bad.
+
+#Deployement Link 
+https://youtube-video-player-og.netlify.app/
