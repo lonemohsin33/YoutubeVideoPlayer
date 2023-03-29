@@ -14,14 +14,14 @@ const VideoPlayer = () => {
     console.log(videoid);
     useEffect(() => {
         getRelatedVideos()
-    }, [])
+    },[])
     async function getRelatedVideos() {
         const res = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyANk4SvuQxf5WwnhmSglP27fdK3zfZb4L4`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyDiK0f0LmWGrnUlB4eyWSN-F-Q5Xq08Ce0`
         );
         const data = await res.json()
         console.log(data)
-        if (data.error) {
+      if (data.error) {
             alert(data.error.message)
         }
         SetRVideos(data.items)
@@ -38,19 +38,18 @@ const VideoPlayer = () => {
       <div className="sidecontent">
         {rvideos
           ? rvideos.map((item) => (
-              <Link to={`/${item.id.videoId}?title=${item.snippet.title}`}>
-                <div
-                  className="sideitems"
-                  key={item.id.videoId}
-                  
-                >
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/${item.id.videoId}?title=${item.snippet.title}`}
+              >
+                <div className="sideitems" key={item.id.videoId}>
                   <img src={item.snippet.thumbnails.standard.url} />
                   <h3> {item.snippet.title} </h3>
                 </div>
               </Link>
             ))
           : ""}
-          </div>
+      </div>
     </div>
   );
 }

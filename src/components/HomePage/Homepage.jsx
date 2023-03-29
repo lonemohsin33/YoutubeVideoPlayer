@@ -10,17 +10,15 @@ const Homepage = () => {
   }, []);
   async function getItems() {
     const res = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyANk4SvuQxf5WwnhmSglP27fdK3zfZb4L4"
+      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyDiK0f0LmWGrnUlB4eyWSN-F-Q5Xq08Ce0"
     );
     const data = await res.json();
     console.log(data);
     SetVideos(data.items);
   }
   return (
-    <div>
-      <nav className="navbar1">
-        <h1 className="H1"> Youtube player</h1>
-      </nav>
+
+      
       <div className="container">
         {videos
           ? videos.map((item) => (
@@ -28,7 +26,7 @@ const Homepage = () => {
             ))
           : ""}
       </div>
-    </div>
+   
   );
 };
 

@@ -1,20 +1,4 @@
-.navbar1{
-    border: 1px solid rgba(0, 0, 255, 0.137);
-    height: 10vh;
-    width: 100%;
-    background:linear-gradient( rgba(0, 0, 255, 0.503),rgba(166, 234, 173, 0.698));
-    
-   
-}
-.H1{
-    cursor: pointer;
-    font-family: cursive;
-    font-weight: 700;
-    font-style: inherit;
-    color: rgb(43, 154, 117);
-    font-size: xx-large;
-    padding-left: 1vmax;
-}
+
 .container{
   
     max-width: 100%;

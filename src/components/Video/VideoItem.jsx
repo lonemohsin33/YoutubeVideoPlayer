@@ -7,12 +7,12 @@ const VideoItem = (props) => {
   
     return (
       <div className="videoitem">
-        <Link to={`/${props.id}?title=${props.title}`}>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`/${props.id}?title=${props.title}`}
+        >
           <img src={props.src} />
-          <h3 className="vidtitle" >
-            {" "}
-            {props.title}
-          </h3>
+          <h3 className="vidtitle"> {props.title}</h3>
         </Link>
       </div>
     );
