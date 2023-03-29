@@ -11,25 +11,26 @@ const Homepage = (props) => {
     getItems();
   }, [props]);
   async function getItems() {
-    if (props.vids.length > 0) {
-      SetVideos(props.vids)
-    } else {
+    // if (props.vids?.length > 0) {
+    //   SetVideos(props.vids)
+    // } else {
       
       const res = await fetch(
-        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyBXU0zxIGg0pP8zqS5cUuw_cga1BxNUYQY"
+        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=AIzaSyAOVmE74uhO0FU4vLKSekvgodDzP422194"
       );
-        const data = await res.json();
-        // console.log(data);
-        SetVideos(data.items);
-      }
-  }
+      const data = await res.json();
+      // console.log(data);
+      SetVideos(data.items);
+    }
+  // }
+  
   return (
 
       
       <div className="container">
         {videos
           ? videos.map((item) => (
-              <VideoItem key={item.id} id={item.id} title={item.snippet.title} src={item.snippet.thumbnails.high.url} desc={item.snippet.description}></VideoItem>
+              <VideoItem key={item.id} id={item.id } title={item.snippet.title} src={item.snippet.thumbnails.high.url} desc={item.snippet.description}></VideoItem>
             ))
           : ""}
       </div>

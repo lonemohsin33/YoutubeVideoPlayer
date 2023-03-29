@@ -16,7 +16,7 @@ const Header = () => {
     async function handclick() {
         console.log(val)
         const res = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${val}&key=AIzaSyBXU0zxIGg0pP8zqS5cUuw_cga1BxNUYQY`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${val}&key=AIzaSyAOVmE74uhO0FU4vLKSekvgodDzP422194`
         );
         
         const data = await res.json()

@@ -23,7 +23,7 @@ const VideoPlayer = () => {
     },[pagec])
     async function getRelatedVideos() {
         const res = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyBXU0zxIGg0pP8zqS5cUuw_cga1BxNUYQY`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${videoid}&type=video&maxResults=20&regionCode=IN&key=AIzaSyAOVmE74uhO0FU4vLKSekvgodDzP422194`
         );
         const data = await res.json()
         console.log(data)
